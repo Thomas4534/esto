@@ -1,176 +1,145 @@
-import Image from "next/image";
-import WorflowImg01 from "@/public/images/workflow-01.png";
-import WorflowImg02 from "@/public/images/workflow-02.png";
-import WorflowImg03 from "@/public/images/workflow-03.png";
-import Spotlight from "@/components/spotlight";
+"use client";
 
-export default function Workflows() {
+import { motion } from "framer-motion";
+
+export default function WorkflowsFeatures() {
+  const workflows = [
+    {
+      title: "Beginner-Friendly",
+      desc: "Get started in real estate with intuitive tools designed for first-time investors.",
+    },
+    {
+      title: "Accessible",
+      desc: "A platform built to make property investment transparent, inclusive, and barrier-free.",
+    },
+    {
+      title: "Scale with Confidence",
+      desc: "Manage multiple properties effortlessly while growing your portfolio with data-driven insights.",
+    },
+  ];
+
   return (
-    <section>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="pb-12 md:pb-20">
-          {/* Section header */}
-          <div className="mx-auto max-w-3xl pb-12 text-center md:pb-20">
-            <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50">
-              <span className="inline-flex bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
-                Tailored Workflows
-              </span>
-            </div>
-            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
-              Map your product journey
-            </h2>
-            <p className="text-lg text-indigo-200/65">
-              Simple and elegant interface to start collaborating with your team
-              in minutes. It seamlessly integrates with your code and your
-              favorite programming languages.
-            </p>
-          </div>
-          {/* Spotlight items */}
-          <Spotlight className="group mx-auto grid max-w-sm items-start gap-6 lg:max-w-none lg:grid-cols-3">
-            {/* Card 1 */}
-            <a
-              className="group/card relative h-full overflow-hidden rounded-2xl bg-gray-800 p-px before:pointer-events-none before:absolute before:-left-40 before:-top-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:-left-48 after:-top-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 hover:after:opacity-20 group-hover:before:opacity-100"
-              href="#0"
-            >
-              <div className="relative z-20 h-full overflow-hidden rounded-[inherit] bg-gray-950 after:absolute after:inset-0 after:bg-linear-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50">
-                {/* Arrow */}
-                <div
-                  className="absolute right-6 top-6 flex h-8 w-8 items-center justify-center rounded-full border border-gray-700/50 bg-gray-800/65 text-gray-200 opacity-0 transition-opacity group-hover/card:opacity-100"
-                  aria-hidden="true"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={9}
-                    height={8}
-                    fill="none"
-                  >
-                    <path
-                      fill="#F4F4F5"
-                      d="m4.92 8-.787-.763 2.733-2.68H0V3.443h6.866L4.133.767 4.92 0 9 4 4.92 8Z"
-                    />
-                  </svg>
-                </div>
-                {/* Image */}
-                <Image
-                  className="inline-flex"
-                  src={WorflowImg01}
-                  width={350}
-                  height={288}
-                  alt="Workflow 01"
-                />
-                {/* Content */}
-                <div className="p-6">
-                  <div className="mb-3">
-                    <span className="btn-sm relative rounded-full bg-gray-800/40 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-gray-700/.15),--theme(--color-gray-700/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-gray-800/60">
-                      <span className="bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
-                        Built-in Tools
-                      </span>
-                    </span>
-                  </div>
-                  <p className="text-indigo-200/65">
-                    Streamline the product development flow with a content
-                    platform that's aligned across specs and insights.
-                  </p>
-                </div>
-              </div>
-            </a>
-            {/* Card 2 */}
-            <a
-              className="group/card relative h-full overflow-hidden rounded-2xl bg-gray-800 p-px before:pointer-events-none before:absolute before:-left-40 before:-top-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:-left-48 after:-top-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 hover:after:opacity-20 group-hover:before:opacity-100"
-              href="#0"
-            >
-              <div className="relative z-20 h-full overflow-hidden rounded-[inherit] bg-gray-950 after:absolute after:inset-0 after:bg-linear-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50">
-                {/* Arrow */}
-                <div
-                  className="absolute right-6 top-6 flex h-8 w-8 items-center justify-center rounded-full border border-gray-700/50 bg-gray-800/65 text-gray-200 opacity-0 transition-opacity group-hover/card:opacity-100"
-                  aria-hidden="true"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={9}
-                    height={8}
-                    fill="none"
-                  >
-                    <path
-                      fill="#F4F4F5"
-                      d="m4.92 8-.787-.763 2.733-2.68H0V3.443h6.866L4.133.767 4.92 0 9 4 4.92 8Z"
-                    />
-                  </svg>
-                </div>
-                {/* Image */}
-                <Image
-                  className="inline-flex"
-                  src={WorflowImg02}
-                  width={350}
-                  height={288}
-                  alt="Workflow 02"
-                />
-                {/* Content */}
-                <div className="p-6">
-                  <div className="mb-3">
-                    <span className="btn-sm relative rounded-full bg-gray-800/40 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-gray-700/.15),--theme(--color-gray-700/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-gray-800/60">
-                      <span className="bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
-                        Scale Instantly
-                      </span>
-                    </span>
-                  </div>
-                  <p className="text-indigo-200/65">
-                    Streamline the product development flow with a content
-                    platform that's aligned across specs and insights.
-                  </p>
-                </div>
-              </div>
-            </a>
-            {/* Card 3 */}
-            <a
-              className="group/card relative h-full overflow-hidden rounded-2xl bg-gray-800 p-px before:pointer-events-none before:absolute before:-left-40 before:-top-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:-left-48 after:-top-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 hover:after:opacity-20 group-hover:before:opacity-100"
-              href="#0"
-            >
-              <div className="relative z-20 h-full overflow-hidden rounded-[inherit] bg-gray-950 after:absolute after:inset-0 after:bg-linear-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50">
-                {/* Arrow */}
-                <div
-                  className="absolute right-6 top-6 flex h-8 w-8 items-center justify-center rounded-full border border-gray-700/50 bg-gray-800/65 text-gray-200 opacity-0 transition-opacity group-hover/card:opacity-100"
-                  aria-hidden="true"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={9}
-                    height={8}
-                    fill="none"
-                  >
-                    <path
-                      fill="#F4F4F5"
-                      d="m4.92 8-.787-.763 2.733-2.68H0V3.443h6.866L4.133.767 4.92 0 9 4 4.92 8Z"
-                    />
-                  </svg>
-                </div>
-                {/* Image */}
-                <Image
-                  className="inline-flex"
-                  src={WorflowImg03}
-                  width={350}
-                  height={288}
-                  alt="Workflow 03"
-                />
-                {/* Content */}
-                <div className="p-6">
-                  <div className="mb-3">
-                    <span className="btn-sm relative rounded-full bg-gray-800/40 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-gray-700/.15),--theme(--color-gray-700/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-gray-800/60">
-                      <span className="bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
-                        Tailored Flows
-                      </span>
-                    </span>
-                  </div>
-                  <p className="text-indigo-200/65">
-                    Streamline the product development flow with a content
-                    platform that's aligned across specs and insights.
-                  </p>
-                </div>
-              </div>
-            </a>
-          </Spotlight>
-        </div>
+    <section id="workflows" className="relative pt-40 pb-20 px-6 sm:px-10 bg-black text-white overflow-hidden">
+      {/* Animated grid and particle background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.07)_0%,transparent_70%)] opacity-50" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px] animate-slow-pan" />
       </div>
+
+      {/* Header */}
+      <motion.div
+        className="max-w-3xl mx-auto text-center mb-28"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
+        <h2 className="text-5xl md:text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-white animate-glow">
+          Real Estate for Everyone
+        </h2>
+        <p className="text-white/70 text-lg leading-relaxed">
+          Esto breaks traditional barriers with AI-driven automation, intuitive design, and a transparent experience for all investors.
+        </p>
+      </motion.div>
+
+      {/* Animated feature orbs */}
+      <div className="relative flex flex-col md:flex-row items-center justify-center gap-16 md:gap-24">
+        {workflows.map((item, i) => (
+          <motion.div
+            key={i}
+            className="relative group w-72 h-72 rounded-full flex flex-col items-center justify-center text-center
+                       bg-gradient-to-b from-white/10 via-white/5 to-transparent
+                       border border-white/20 backdrop-blur-md overflow-hidden
+                       hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:border-white/40
+                       transition-all duration-700"
+            initial={{ opacity: 0, scale: 0.8, y: 40 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.2, duration: 0.8 }}
+            whileHover={{ scale: 1.08 }}
+          >
+            {/* Rotating glows */}
+            <motion.div
+              className="absolute inset-0 rounded-full border border-white/10 blur-md"
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+            />
+            <motion.div
+              className="absolute inset-0 rounded-full border border-white/30 opacity-30"
+              animate={{ rotate: -360 }}
+              transition={{ repeat: Infinity, duration: 28, ease: "linear" }}
+            />
+
+            {/* Center text */}
+            <div className="relative z-10 px-6">
+              <h3 className="font-semibold text-xl mb-2 tracking-wide">{item.title}</h3>
+              <p className="text-sm text-white/70 leading-relaxed">{item.desc}</p>
+            </div>
+
+            {/* Floating particles inside each orb */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute w-1 h-1 bg-white rounded-full top-1/4 left-1/3 opacity-50 animate-particle1" />
+              <div className="absolute w-1 h-1 bg-white rounded-full bottom-1/4 right-1/3 opacity-40 animate-particle2" />
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Connecting neural lines */}
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-25"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <motion.line
+          x1="30%" y1="60%" x2="50%" y2="40%"
+          stroke="white" strokeOpacity="0.5" strokeWidth="1"
+          animate={{ pathLength: [0.2, 1, 0.2] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.line
+          x1="50%" y1="40%" x2="70%" y2="60%"
+          stroke="white" strokeOpacity="0.5" strokeWidth="1"
+          animate={{ pathLength: [0.2, 1, 0.2] }}
+          transition={{ duration: 6, delay: 1, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </svg>
+
+      {/* Custom Animations */}
+      <style jsx>{`
+        @keyframes slow-pan {
+          0% { background-position: 0 0; }
+          100% { background-position: 80px 80px; }
+        }
+        .animate-slow-pan {
+          animation: slow-pan 20s linear infinite;
+        }
+
+        @keyframes glow {
+          0%, 100% { filter: drop-shadow(0 0 20px rgba(255,255,255,0.3)); }
+          50% { filter: drop-shadow(0 0 35px rgba(255,255,255,0.6)); }
+        }
+        .animate-glow {
+          animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes particle1 {
+          0% { transform: translate(0, 0); opacity: 0.3; }
+          50% { transform: translate(20px, -20px); opacity: 1; }
+          100% { transform: translate(0, 0); opacity: 0.3; }
+        }
+        .animate-particle1 {
+          animation: particle1 6s ease-in-out infinite;
+        }
+
+        @keyframes particle2 {
+          0% { transform: translate(0, 0); opacity: 0.4; }
+          50% { transform: translate(-25px, 15px); opacity: 1; }
+          100% { transform: translate(0, 0); opacity: 0.4; }
+        }
+        .animate-particle2 {
+          animation: particle2 7s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 }

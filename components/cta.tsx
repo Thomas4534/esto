@@ -1,54 +1,65 @@
+"use client";
+
 import Image from "next/image";
 import BlurredShape from "@/public/images/blurred-shape.svg";
 
 export default function Cta() {
   return (
-    <section className="relative overflow-hidden">
-      <div
-        className="pointer-events-none absolute bottom-0 left-1/2 -z-10 -mb-24 ml-20 -translate-x-1/2"
-        aria-hidden="true"
-      >
-        <Image
-          className="max-w-none"
-          src={BlurredShape}
-          width={760}
-          height={668}
-          alt="Blurred shape"
-        />
+    <section className="relative overflow-hidden bg-black text-white">
+      {/* Subtle abstract techy background */}
+      <div className="absolute inset-0 -z-10">
+        {/* Radial gradient for depth */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#1a1a1a, #000)]"></div>
+
+        {/* Moving diagonal lines */}
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,#111 0 1px,#000 1px 10px)] opacity-20 animate-pulse-slow"></div>
+
+        {/* Blurred accent shape */}
+        <div
+          className="pointer-events-none absolute bottom-0 left-1/2 -z-10 -mb-24 ml-20 -translate-x-1/2"
+          aria-hidden="true"
+        >
+          <Image
+            className="max-w-none opacity-30"
+            src={BlurredShape}
+            width={760}
+            height={668}
+            alt="Blurred shape"
+          />
+        </div>
       </div>
-      <div className="max-w6xl mx-auto px-4 sm:px-6">
-        <div className="bg-linear-to-r from-transparent via-gray-800/50 py-12 md:py-20">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2
-              className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-8 font-nacelle text-3xl font-semibold text-transparent md:text-4xl"
-              data-aos="fade-up"
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="py-12 md:py-20 text-center">
+          {/* Heading */}
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.6)] mb-10 animate-pulse-slow">
+            Start Managing Rent Smarter
+          </h2>
+
+          {/* Buttons */}
+          <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center gap-4">
+            <a
+              className="relative inline-flex items-center justify-center px-6 py-3 text-lg font-semibold rounded-full
+              bg-white text-black hover:bg-gray-200 transition-all duration-300
+              shadow-[0_0_20px_rgba(255,255,255,0.5)] hover:shadow-[0_0_30px_rgba(255,255,255,0.8)] w-full sm:w-auto mb-4 sm:mb-0"
+              href="#0"
             >
-              Join the content-first platform
-            </h2>
-            <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
-              <div data-aos="fade-up" data-aos-delay={400}>
-                <a
-                  className="btn group mb-4 w-full bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
-                  href="#0"
-                >
-                  <span className="relative inline-flex items-center">
-                    Start Building
-                    <span className="ml-1 tracking-normal text-white/50 transition-transform group-hover:translate-x-0.5">
-                      -&gt;
-                    </span>
-                  </span>
-                </a>
-              </div>
-              <div data-aos="fade-up" data-aos-delay={600}>
-                <a
-                  className="btn relative w-full bg-linear-to-b from-gray-800 to-gray-800/60 bg-[length:100%_100%] bg-[bottom] text-gray-300 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-[length:100%_150%] sm:ml-4 sm:w-auto"
-                  href="#0"
-                >
-                  Schedule Demo
-                </a>
-              </div>
-            </div>
+              Get Started
+            </a>
+
+            <a
+              className="relative inline-flex items-center justify-center px-6 py-3 text-lg font-semibold rounded-full border border-white/40
+              hover:bg-white/10 transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.25)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] w-full sm:w-auto"
+              href="#0"
+            >
+              Schedule Demo
+            </a>
           </div>
+
+          {/* Subtitle */}
+          <p className="mt-6 max-w-2xl mx-auto text-indigo-100/70 text-lg leading-relaxed drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+            Esto helps automate rent reminders, ensure compliance, and deliver intelligent, human-like messaging for tenants and landlords alike — making property management effortless.
+          </p>
         </div>
       </div>
     </section>

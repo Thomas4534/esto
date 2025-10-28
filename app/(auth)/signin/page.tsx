@@ -1,82 +1,130 @@
-export const metadata = {
-  title: "Sign In - Open PRO",
-  description: "Page description",
-};
+"use client";
 
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function SignIn() {
   return (
-    <section>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="py-12 md:py-20">
-          {/* Section header */}
-          <div className="pb-12 text-center">
-            <h1 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
-              Welcome back
-            </h1>
-          </div>
-          {/* Contact form */}
-          <form className="mx-auto max-w-[400px]">
-            <div className="space-y-5">
-              <div>
-                <label
-                  className="mb-1 block text-sm font-medium text-indigo-200/65"
-                  htmlFor="email"
-                >
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  className="form-input w-full"
-                  placeholder="Your email"
-                />
-              </div>
-              <div>
-                <div className="mb-1 flex items-center justify-between gap-3">
-                  <label
-                    className="block text-sm font-medium text-indigo-200/65"
-                    htmlFor="password"
-                  >
-                    Password
-                  </label>
-                  <Link
-                    className="text-sm text-gray-600 hover:underline"
-                    href="/reset-password"
-                  >
-                    Forgot?
-                  </Link>
-                </div>
-                <input
-                  id="password"
-                  type="password"
-                  className="form-input w-full"
-                  placeholder="Your password"
-                />
-              </div>
-            </div>
-            <div className="mt-6 space-y-5">
-              <button className="btn w-full bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%]">
-                Sign in
-              </button>
-              <div className="flex items-center gap-3 text-center text-sm italic text-gray-600 before:h-px before:flex-1 before:bg-linear-to-r before:from-transparent before:via-gray-400/25 after:h-px after:flex-1 after:bg-linear-to-r after:from-transparent after:via-gray-400/25">
-                or
-              </div>
-              <button className="btn relative w-full bg-linear-to-b from-gray-800 to-gray-800/60 bg-[length:100%_100%] bg-[bottom] text-gray-300 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-[length:100%_150%]">
-                Sign In with Google
-              </button>
-            </div>
-          </form>
-          {/* Bottom link */}
-          <div className="mt-6 text-center text-sm text-indigo-200/65">
-            Don't you have an account?{" "}
-            <Link className="font-medium text-indigo-500" href="/signup">
-              Sign Up
-            </Link>
-          </div>
-        </div>
+    <section className="relative min-h-screen bg-black text-white flex items-center justify-center overflow-hidden">
+      {/* ✦ Subtle animated tech grid background */}
+      <div className="absolute inset-0 -z-20 opacity-[0.08] bg-[linear-gradient(to_right,rgba(255,255,255,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.4)_1px,transparent_1px)] bg-[size:40px_40px] animate-[pulse_12s_ease-in-out_infinite]" />
+
+      {/* ✦ Soft glowing radial gradients for depth */}
+      <div className="absolute -top-32 right-0 w-[40rem] h-[40rem] bg-[radial-gradient(circle,rgba(255,255,255,0.12),transparent_70%)] blur-3xl -z-10 animate-pulse" />
+      <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-[radial-gradient(circle,rgba(255,255,255,0.1),transparent_70%)] blur-3xl -z-10 animate-pulse delay-500" />
+
+      {/* ✦ Floating shimmer particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(25)].map((_, i) => (
+          <motion.span
+            key={i}
+            className="absolute w-1 h-1 bg-white/40 rounded-full"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+            }}
+            animate={{ y: ["0%", "-20%"], opacity: [0, 1, 0] }}
+            transition={{
+              duration: 4 + Math.random() * 4,
+              repeat: Infinity,
+              delay: Math.random() * 5,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
       </div>
+
+      {/* ✦ Main Sign-In Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+        className="relative z-10 w-full max-w-md rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 via-white/10 to-white/5 backdrop-blur-xl shadow-[0_0_60px_rgba(255,255,255,0.08)] p-10"
+      >
+        {/* Header */}
+        <motion.h1
+          className="text-5xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-white"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 1 }}
+        >
+          Welcome Back
+        </motion.h1>
+        <p className="text-center text-white/70 mt-3">
+          Sign in to access your Esto dashboard
+        </p>
+
+        {/* Form */}
+        <form className="mt-10 space-y-6">
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-white/70 mb-2"
+            >
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              className="w-full px-4 py-3 rounded-xl bg-white/5 text-white placeholder-white/40 border border-white/10 focus:border-white/30 outline-none transition"
+              placeholder="you@esto.ai"
+            />
+          </div>
+
+          <div>
+            <div className="flex justify-between items-center mb-2">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-white/70"
+              >
+                Password
+              </label>
+              <Link
+                href="/reset-password"
+                className="text-sm text-white/50 hover:text-white transition"
+              >
+                Forgot?
+              </Link>
+            </div>
+            <input
+              id="password"
+              type="password"
+              className="w-full px-4 py-3 rounded-xl bg-white/5 text-white placeholder-white/40 border border-white/10 focus:border-white/30 outline-none transition"
+              placeholder="••••••••"
+            />
+          </div>
+
+          {/* Buttons */}
+          <button
+            type="submit"
+            className="w-full py-3 mt-6 rounded-xl font-semibold bg-white text-black hover:bg-gray-200 transition-all shadow-[0_0_35px_rgba(255,255,255,0.4)] hover:shadow-[0_0_50px_rgba(255,255,255,0.7)]"
+          >
+            Sign In
+          </button>
+
+          <div className="flex items-center gap-3 text-center text-sm italic text-white/40 before:h-px before:flex-1 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent after:h-px after:flex-1 after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent">
+            or
+          </div>
+
+          <button
+            type="button"
+            className="w-full py-3 rounded-xl border border-white/15 text-white/80 font-medium bg-white/5 hover:bg-white/15 transition-all"
+          >
+            Sign in with Google
+          </button>
+        </form>
+
+        {/* Footer link */}
+        <p className="mt-8 text-center text-white/60 text-sm">
+          Don’t have an account?{" "}
+          <Link
+            href="/signup"
+            className="text-white font-medium hover:underline"
+          >
+            Sign Up
+          </Link>
+        </p>
+      </motion.div>
     </section>
   );
 }
