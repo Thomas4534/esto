@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function HeroHome() {
-  const [particles, setParticles] = useState([]);
+  const [particles, setParticles] = useState<
+    { top: string; left: string; delay: number; duration: number; size: number }[]
+  >([]);
   const [polygons, setPolygons] = useState([]);
   const [trailingDots, setTrailingDots] = useState([]);
   const [showNotice, setShowNotice] = useState(false);
