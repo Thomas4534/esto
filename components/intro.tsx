@@ -3,16 +3,40 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+type Particle = {
+  top: string;
+  left: string;
+  delay: number;
+  duration: number;
+  size: number;
+};
+
+type Polygon = {
+  top: number;
+  left: number;
+  size: number;
+  rotation: number;
+  delay: number;
+};
+
+type TrailingDot = {
+  top: number;
+  left: number;
+  size: number;
+  duration: number;
+  delay: number;
+  xDir: number;
+  yDir: number;
+};
+
 export default function HeroHome() {
-  const [particles, setParticles] = useState<
-    { top: string; left: string; delay: number; duration: number; size: number }[]
-  >([]);
-  const [polygons, setPolygons] = useState([]);
-  const [trailingDots, setTrailingDots] = useState([]);
+  const [particles, setParticles] = useState<Particle[]>([]);
+  const [polygons, setPolygons] = useState<Polygon[]>([]);
+  const [trailingDots, setTrailingDots] = useState<TrailingDot[]>([]);
   const [showNotice, setShowNotice] = useState(false);
 
   useEffect(() => {
-    const generatedParticles = Array.from({ length: 45 }, () => ({
+    const generatedParticles: Particle[] = Array.from({ length: 45 }, () => ({
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
       delay: Math.random() * 6,
@@ -21,7 +45,7 @@ export default function HeroHome() {
     }));
     setParticles(generatedParticles);
 
-    const generatedPolygons = Array.from({ length: 30 }, () => ({
+    const generatedPolygons: Polygon[] = Array.from({ length: 30 }, () => ({
       top: Math.random() * 100,
       left: Math.random() * 100,
       size: 20 + Math.random() * 40,
@@ -30,7 +54,7 @@ export default function HeroHome() {
     }));
     setPolygons(generatedPolygons);
 
-    const generatedDots = Array.from({ length: 80 }, () => ({
+    const generatedDots: TrailingDot[] = Array.from({ length: 80 }, () => ({
       top: Math.random() * window.innerHeight,
       left: Math.random() * window.innerWidth,
       size: 2.5 + Math.random() * 2,
