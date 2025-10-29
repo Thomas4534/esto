@@ -4,11 +4,11 @@ export const metadata = {
 };
 
 import PageIllustration from "@/components/page-illustration";
-import Hero from "@/components/hero-home";
-import Workflows from "@/components/workflows";
+import Hero from "@/components/intro";
+import Workflows from "@/components/mission";
 import Features from "@/components/features";
-import Testimonials from "@/components/testimonials";
-import Cta from "@/components/cta";
+import Testimonials from "@/components/locations";
+import Cta from "@/components/outro";
 
 export default function Home() {
   return (

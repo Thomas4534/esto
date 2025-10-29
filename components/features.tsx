@@ -66,7 +66,6 @@ export default function Features() {
 
   return (
     <section id="features" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-28 text-white overflow-hidden">
-      {/* Dynamic background grid with moving glow */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:60px_60px]" />
         <motion.div
@@ -76,7 +75,6 @@ export default function Features() {
         />
       </div>
 
-      {/* Section header */}
       <motion.div
         className="relative mx-auto max-w-3xl pb-20 text-center"
         initial={{ opacity: 0, y: 20 }}
@@ -92,7 +90,6 @@ export default function Features() {
         </p>
       </motion.div>
 
-      {/* Feature cards grid */}
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 relative">
         {features.map((feature, i) => (
           <motion.article
@@ -104,7 +101,6 @@ export default function Features() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: i * 0.1 }}
           >
-            {/* Animated accent circle */}
             <motion.div
               className="absolute -top-10 right-10 w-32 h-32 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.08),transparent_70%)] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
               animate={{ rotate: 360 }}
@@ -122,13 +118,11 @@ export default function Features() {
               {feature.desc}
             </p>
 
-            {/* Subtle bottom line glow */}
             <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700" />
           </motion.article>
         ))}
       </div>
 
-      {/* Animated connection lines between cards */}
       <svg
         className="absolute inset-0 w-full h-full pointer-events-none opacity-20"
         xmlns="http://www.w3.org/2000/svg"

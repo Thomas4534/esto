@@ -14,15 +14,14 @@ export default function Header() {
   };
 
   return (
-    <header className="z-30 w-full fixed top-0 backdrop-blur-md bg-black border-b border-white/10">
+    <header className="z-30 w-full fixed top-0 backdrop-blur-md bg-black">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <motion.div
-          className="relative flex h-16 items-center justify-between gap-3 rounded-2xl border border-white/10 bg-black px-4"
+          className="relative flex h-16 items-center justify-between gap-3 px-0"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Site branding */}
           <div className="flex flex-1 items-center">
             <Link href="/" className="flex items-center">
               <Image
@@ -36,7 +35,6 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Navigation / Buttons */}
           <ul className="flex flex-1 items-center justify-end gap-3 text-white">
             <li>
               <Link

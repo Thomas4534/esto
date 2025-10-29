@@ -6,14 +6,11 @@ import Link from "next/link";
 export default function SignIn() {
   return (
     <section className="relative min-h-screen bg-black text-white flex items-center justify-center overflow-hidden">
-      {/* ✦ Subtle animated tech grid background */}
       <div className="absolute inset-0 -z-20 opacity-[0.08] bg-[linear-gradient(to_right,rgba(255,255,255,0.4)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.4)_1px,transparent_1px)] bg-[size:40px_40px] animate-[pulse_12s_ease-in-out_infinite]" />
 
-      {/* ✦ Soft glowing radial gradients for depth */}
       <div className="absolute -top-32 right-0 w-[40rem] h-[40rem] bg-[radial-gradient(circle,rgba(255,255,255,0.12),transparent_70%)] blur-3xl -z-10 animate-pulse" />
       <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-[radial-gradient(circle,rgba(255,255,255,0.1),transparent_70%)] blur-3xl -z-10 animate-pulse delay-500" />
 
-      {/* ✦ Floating shimmer particles */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(25)].map((_, i) => (
           <motion.span
@@ -34,14 +31,12 @@ export default function SignIn() {
         ))}
       </div>
 
-      {/* ✦ Main Sign-In Card */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
         className="relative z-10 w-full max-w-md rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 via-white/10 to-white/5 backdrop-blur-xl shadow-[0_0_60px_rgba(255,255,255,0.08)] p-10"
       >
-        {/* Header */}
         <motion.h1
           className="text-5xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-white"
           initial={{ opacity: 0, y: 20 }}
@@ -54,7 +49,6 @@ export default function SignIn() {
           Sign in to access your Esto dashboard
         </p>
 
-        {/* Form */}
         <form className="mt-10 space-y-6">
           <div>
             <label
@@ -94,7 +88,6 @@ export default function SignIn() {
             />
           </div>
 
-          {/* Buttons */}
           <button
             type="submit"
             className="w-full py-3 mt-6 rounded-xl font-semibold bg-white text-black hover:bg-gray-200 transition-all shadow-[0_0_35px_rgba(255,255,255,0.4)] hover:shadow-[0_0_50px_rgba(255,255,255,0.7)]"
@@ -114,7 +107,6 @@ export default function SignIn() {
           </button>
         </form>
 
-        {/* Footer link */}
         <p className="mt-8 text-center text-white/60 text-sm">
           Don’t have an account?{" "}
           <Link

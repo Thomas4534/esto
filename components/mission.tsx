@@ -20,13 +20,11 @@ export default function WorkflowsFeatures() {
 
   return (
     <section id="workflows" className="relative pt-40 pb-20 px-6 sm:px-10 bg-black text-white overflow-hidden">
-      {/* Animated grid and particle background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.07)_0%,transparent_70%)] opacity-50" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px] animate-slow-pan" />
       </div>
 
-      {/* Header */}
       <motion.div
         className="max-w-3xl mx-auto text-center mb-28"
         initial={{ opacity: 0, y: 30 }}
@@ -42,7 +40,6 @@ export default function WorkflowsFeatures() {
         </p>
       </motion.div>
 
-      {/* Animated feature orbs */}
       <div className="relative flex flex-col md:flex-row items-center justify-center gap-16 md:gap-24">
         {workflows.map((item, i) => (
           <motion.div
@@ -58,7 +55,6 @@ export default function WorkflowsFeatures() {
             transition={{ delay: i * 0.2, duration: 0.8 }}
             whileHover={{ scale: 1.08 }}
           >
-            {/* Rotating glows */}
             <motion.div
               className="absolute inset-0 rounded-full border border-white/10 blur-md"
               animate={{ rotate: 360 }}
@@ -70,13 +66,11 @@ export default function WorkflowsFeatures() {
               transition={{ repeat: Infinity, duration: 28, ease: "linear" }}
             />
 
-            {/* Center text */}
             <div className="relative z-10 px-6">
               <h3 className="font-semibold text-xl mb-2 tracking-wide">{item.title}</h3>
               <p className="text-sm text-white/70 leading-relaxed">{item.desc}</p>
             </div>
 
-            {/* Floating particles inside each orb */}
             <div className="absolute inset-0 pointer-events-none">
               <div className="absolute w-1 h-1 bg-white rounded-full top-1/4 left-1/3 opacity-50 animate-particle1" />
               <div className="absolute w-1 h-1 bg-white rounded-full bottom-1/4 right-1/3 opacity-40 animate-particle2" />
@@ -85,7 +79,6 @@ export default function WorkflowsFeatures() {
         ))}
       </div>
 
-      {/* Connecting neural lines */}
       <svg
         className="absolute inset-0 w-full h-full pointer-events-none opacity-25"
         xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +97,6 @@ export default function WorkflowsFeatures() {
         />
       </svg>
 
-      {/* Custom Animations */}
       <style jsx>{`
         @keyframes slow-pan {
           0% { background-position: 0 0; }

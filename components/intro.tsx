@@ -1,19 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function HeroHome() {
   const [particles, setParticles] = useState([]);
   const [polygons, setPolygons] = useState([]);
   const [trailingDots, setTrailingDots] = useState([]);
+  const [showNotice, setShowNotice] = useState(false);
 
   useEffect(() => {
-    const generatedParticles = Array.from({ length: 25 }, () => ({
+    const generatedParticles = Array.from({ length: 45 }, () => ({
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
       delay: Math.random() * 6,
-      duration: 5 + Math.random() * 4,
+      duration: 4 + Math.random() * 3,
+      size: 2 + Math.random() * 2,
     }));
     setParticles(generatedParticles);
 
@@ -26,10 +28,10 @@ export default function HeroHome() {
     }));
     setPolygons(generatedPolygons);
 
-    const generatedDots = Array.from({ length: 50 }, () => ({
+    const generatedDots = Array.from({ length: 80 }, () => ({
       top: Math.random() * window.innerHeight,
       left: Math.random() * window.innerWidth,
-      size: 2 + Math.random() * 2,
+      size: 2.5 + Math.random() * 2,
       duration: 6 + Math.random() * 4,
       delay: Math.random() * 6,
       xDir: Math.random() > 0.5 ? 1 : -1,
@@ -38,21 +40,24 @@ export default function HeroHome() {
     setTrailingDots(generatedDots);
   }, []);
 
+  const handleGetStartedClick = () => {
+    setShowNotice(true);
+  };
+
   return (
     <section className="relative bg-black text-white overflow-hidden flex items-center min-h-[70vh] pt-8 pb-2 sm:pt-10 sm:pb-1">
       <div className="absolute inset-0 bg-black -z-30" />
 
       <div className="absolute inset-0 -z-20">
-        <div className="absolute top-0 left-0 w-[60vw] h-[60vw] bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_70%)]" />
-        <div className="absolute bottom-0 right-0 w-[60vw] h-[60vw] bg-[radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.07),transparent_70%)]" />
+        <div className="absolute top-0 left-0 w-[60vw] h-[60vw] bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.1),transparent_70%)] blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[60vw] h-[60vw] bg-[radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.15),transparent_70%)] blur-3xl" />
       </div>
 
-      {/* Floating geometric shapes */}
       <div className="absolute inset-0 -z-10">
         {polygons.map((poly, i) => (
           <motion.div
             key={i}
-            className="absolute border border-white/10 bg-white/5 rounded-lg"
+            className="absolute border border-white/20 bg-white/10 rounded-lg"
             style={{
               width: poly.size,
               height: poly.size,
@@ -62,8 +67,8 @@ export default function HeroHome() {
             }}
             animate={{
               rotate: [poly.rotation, poly.rotation + 360],
-              opacity: [0.1, 0.4, 0.1],
-              scale: [1, 1.05, 1],
+              opacity: [0.15, 0.45, 0.15],
+              scale: [1, 1.1, 1],
             }}
             transition={{
               duration: 14 + Math.random() * 8,
@@ -75,7 +80,6 @@ export default function HeroHome() {
         ))}
       </div>
 
-      {/* Minimalistic traveling dots */}
       <div className="absolute inset-0 -z-15 pointer-events-none">
         {trailingDots.map((dot, i) => (
           <motion.div
@@ -86,13 +90,13 @@ export default function HeroHome() {
               height: dot.size,
               top: dot.top,
               left: dot.left,
-              filter: "blur(1px)",
-              opacity: 0.6,
+              filter: "blur(0.5px)",
+              opacity: 0.8,
             }}
             animate={{
-              x: [0, dot.xDir * 50],
-              y: [0, dot.yDir * 50],
-              opacity: [0.2, 0.8, 0.2],
+              x: [0, dot.xDir * 60],
+              y: [0, dot.yDir * 60],
+              opacity: [0.3, 1, 0.3],
             }}
             transition={{
               duration: dot.duration,
@@ -105,7 +109,6 @@ export default function HeroHome() {
         ))}
       </div>
 
-      {/* Hero content */}
       <div className="relative z-10 w-full text-center px-6 max-w-5xl mx-auto">
         <motion.h1
           className="text-4xl md:text-6xl font-extrabold tracking-tight
@@ -123,8 +126,9 @@ export default function HeroHome() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          Esto automates rent operations end-to-end — from intelligent reminders to predictive insights.
-          Seamless. Secure. Supercharged for the future of property management.
+          Esto automates rent operations end-to-end — from intelligent reminders
+          to predictive insights. Seamless. Secure. Supercharged for the future
+          of property management.
         </motion.p>
 
         <motion.div
@@ -133,14 +137,19 @@ export default function HeroHome() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
-          <a
-            href="#0"
+          <button
+            onClick={handleGetStartedClick}
             className="px-8 py-3 text-lg font-semibold rounded-full bg-white text-black hover:bg-gray-200 transition-all duration-300"
           >
             Get Started
-          </a>
+          </button>
           <a
-            href="#0"
+            href="#features"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.getElementById("features");
+              if (element) element.scrollIntoView({ behavior: "smooth" });
+            }}
             className="px-8 py-3 text-lg font-semibold rounded-full border border-white/40 hover:bg-white/10 transition-all duration-300"
           >
             Learn More
@@ -158,14 +167,20 @@ export default function HeroHome() {
         </motion.p>
       </div>
 
-      {/* Floating shimmer particles */}
       <div className="absolute inset-0 pointer-events-none">
         {particles.map((p, i) => (
           <motion.span
             key={i}
-            className="absolute w-1 h-1 bg-white/30 rounded-full"
-            style={{ top: p.top, left: p.left }}
-            animate={{ y: ["0%", "-30%"], opacity: [0, 1, 0] }}
+            className="absolute rounded-full bg-white"
+            style={{
+              width: p.size,
+              height: p.size,
+              top: p.top,
+              left: p.left,
+              opacity: 0.9,
+              filter: "blur(1px)",
+            }}
+            animate={{ y: ["0%", "-40%"], opacity: [0, 1, 0] }}
             transition={{
               duration: p.duration,
               repeat: Infinity,
@@ -175,6 +190,41 @@ export default function HeroHome() {
           />
         ))}
       </div>
+
+      <AnimatePresence>
+        {showNotice && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50"
+            onClick={() => setShowNotice(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-[#0a0a0a] border border-white/10 rounded-2xl p-8 max-w-sm text-center shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+            >
+              <h2 className="text-lg font-semibold mb-2 text-white/90">
+                Services Coming Soon
+              </h2>
+              <p className="text-white/60 text-sm mb-6">
+                We’re building amazing tools to help you manage your rentals
+                smarter and faster. Stay tuned!
+              </p>
+              <button
+                onClick={() => setShowNotice(false)}
+                className="px-6 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white/90 transition border border-white/20"
+              >
+                Close
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

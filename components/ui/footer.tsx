@@ -110,7 +110,6 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Copyright */}
         <div className="mt-16">
           <p className="text-white/50 text-sm drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
             © Esto {new Date().getFullYear()}
@@ -118,7 +117,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Popup overlay */}
       <AnimatePresence>
         {showNotice && noticeContent && (
           <motion.div
